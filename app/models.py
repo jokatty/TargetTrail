@@ -9,6 +9,7 @@ class Goal(Base):
     id = Column(Integer, primary_key=True)
     goal = Column(String)
     duration = Column(Integer)
+    frequency = Column(String)
 
 def init_db():
     engine = create_engine('sqlite:///target.db')
