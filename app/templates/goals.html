@@ -3,7 +3,13 @@
   <h1 class="d-flex justify-content-center">Goals</h1>
   <ul class="list-group">
     {% for goal in goals %}
-    <li class="list-group-item">{{ goal['goal'] }}</li>
+    <li class="list-group-item row">
+      <span class="col-3">{{goal['goal']}}</span>
+      <span class="col-3">{{goal['duration']}}</span>
+      <span class="col-3">{{goal['frequency']}}</span>
+      <span class="col-3">edit</span>
+      <span class="col-3">delete</span>
+    </li>
     {% endfor %}
   </ul>
 </div>
