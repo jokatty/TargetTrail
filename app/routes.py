@@ -16,7 +16,7 @@ def index():
 def goals():
     goals = session.query(Goal).all()
     goal_list = [{'goal': goal.goal, 'duration': goal.duration} for goal in goals]
-    return jsonify(goal_list)
+    return render_template('goals.html', goals=goal_list)
 
 @bp.route('/new_goal', methods=['GET', 'POST'])
 def new_goal():
