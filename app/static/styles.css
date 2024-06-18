@@ -1,3 +1,9 @@
 body {
   background-color: rgb(241, 214, 177);
 }
+
+/* style goal container */
+.goal-container {
+  max-width: 70%;
+  margin-top: 20%;
+}
