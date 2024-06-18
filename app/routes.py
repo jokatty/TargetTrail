@@ -15,7 +15,7 @@ def index():
 @bp.route('/goals')
 def goals():
     goals = session.query(Goal).all()
-    goal_list = [{'goal': goal.goal, 'duration': goal.duration} for goal in goals]
+    goal_list = [{'goal': goal.goal, 'duration': goal.duration, 'frequency': goal.frequency} for goal in goals]
     return render_template('goals.html', goals=goal_list)
 
 @bp.route('/new_goal', methods=['GET', 'POST'])
@@ -24,10 +24,11 @@ def new_goal():
         goal = request.form['goal']
         duration = request.form['duration']
         duration_unit = request.form['duration_unit']
+        frequency = request.form['frequency']
         if duration_unit == 'hours':
             duration = int(duration) * 60
         duration = int(duration)
-        new_goal = Goal(goal=goal, duration=duration)
+        new_goal = Goal(goal=goal, duration=duration, frequency=frequency)
         session.add(new_goal)
         session.commit()
         return redirect('/')
