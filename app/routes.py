@@ -10,7 +10,7 @@ session = Session()
 
 @bp.route('/')
 def index():
-    return "Hello, World!"
+    return render_template('index.html')
 
 @bp.route('/goals')
 def goals():
